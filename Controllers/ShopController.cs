@@ -37,9 +37,34 @@ namespace shop_MahdiTaremi.Controllers
             objects.Description = "Test 3";
             products.Add(objects);
 
-            var query = products.Where(x => x.Name == "Name2").ToList();
+             var query = products.ToList();
+            // var querySelect = products.ToList().Select(items => new {
+            var querySelect = products.Select(items => new {
+                items.Id,
+                items.Name,
+                items.Price,
+                items.Quantity,
+                items.Color,
+                items.Description
+            }).ToList(); 
+           // var querySelect =query.Select(items => new {
+           //    items.Id,
+           //    items.Name,
+           //    items.Price,
+           //     items.Quantity,
+           //    items.Color,
+           //    items.Description 
+           // });
+            // var query = products.Where(x => x.Name == "Name2").ToList();
+            // var query = products.Where(x => x.Id == 3).SingleOrDefault();
+            // var query = products.Where(x => x.Id == 3).FirstOrDefault();
+            // var query = products.Where(x => x.Id == 3).LastOrDefault();
+            // var query = products.Where(x => x.Id == 3).ToList();
+            // var query = products.Where(x => x.Name == "Name2").Any();
+            // var query = products.Where(x => x.Name == "Name2").Count();
+            // var query = products.Where(x => x.Name.Contains("Name2")).ToList();
 
-            return View();
+            return View(query);
         }
 
     }
