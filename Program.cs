@@ -1,6 +1,13 @@
+using shop_MahdiTaremi.Models;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<dbShop>(x => x.UseSqlServer("Server=.:Initial Catalog=shopShamsipourTechnicalCollege;Integrated Security=False;Persist Security Info=False;TrustServerCertificate=True; User Id=MahdiTaremi;Password=123;"));
+//"Server=.:Initial Catalog=shopShamsipourTechnicalCollege;Integrated Security=False;Persist Security Info=False;TrustServerCertificate=True; User Id=myUsername;Password=myPassword;"
+//.Services.AddDbContext<>(x => x.UseSqlServer("Connection String"));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
