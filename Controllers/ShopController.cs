@@ -12,7 +12,7 @@ namespace shop_MahdiTaremi.Controllers
         }
         public IActionResult Index()
         {
-            var query = dbShop.Product.ToList();
+            //var query = dbShop.Product.ToList();
             
             // List<Product> products = new List<Product>();  T
 
@@ -73,17 +73,17 @@ namespace shop_MahdiTaremi.Controllers
             // var query = products.Where(x => x.Name.Contains("Name2")).ToList();
 
             // return View(query);  T
-            return View(query);
+            return View();
         }
         public IActionResult BuyShop()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult BuyShopAction(Product items)
+        public IActionResult BuyShopAction(Product f)
         {
-            dbShop.Product.Add(items);
-            //dbShop.SaveChanges();                
+            dbShop.Product.Add(f);
+            dbShop.SaveChanges();                
             return RedirectToAction("Index");
         }
 
