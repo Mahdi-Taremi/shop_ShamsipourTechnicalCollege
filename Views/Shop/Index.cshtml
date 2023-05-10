@@ -1,8 +1,12 @@
-﻿@model IEnumerable<shop_MahdiTaremi.Models.Product>
+﻿<!-- model IQueryable<shop_MahdiTaremi.Models.Product> -->
+<!-- model IEnumerable<shop_MahdiTaremi.Models.Product> -->
+<!-- model IEnumerable<Product> -->
 
+
+    <!--
+model IEnumerable<shop_MahdiTaremi.Models.Product>
 <h1>Index Shop</h1>  
 
-<!--
 
 <table class="table">
     <thead>
@@ -20,8 +24,8 @@
 
     <tbody>
 
-     foreach (var item in Model) 
-        {
+     foreach (var item in Model) {
+
             <tr>
                 <td>item.Id</td>
                 <td>item.Name</td>
@@ -36,5 +40,47 @@
        
     </tbody>
 </table>
--->
+    -->
+@model Product
 
+<form method="post" action="BuyShopAction">
+    <div class="mb-3">
+        <label for="exampleInputName" class="form-label">Name: </label>
+        <input type="text" class="form-control" id="exampleInputName" name="Name" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPrice" class="form-label">Price: </label>
+        <input type="number" class="form-control" id="exampleInputPrice" name="Price" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputQuantity" class="form-label">Quantity: </label>
+        <input type="number" class="form-control" id="exampleInputQuantity" name="Quantity" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputColor" class="form-label">Color: </label>
+        <input type="text" class="form-control" id="exampleInputColor" name="Color" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputDescription" class="form-label">Description: </label>
+        <input type="text" class="form-control" id="exampleInputDescription" name="Description" aria-describedby="emailHelp">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Save" />
+
+    <!-- <button type="submit" value="OK"  class="btn btn-primary"></button> -->
+</form>
+
+
+
+
+<!--
+<tr>
+    <td> Html.DisplayNameFor(model => item.Id) </td>
+    <td> Html.DisplayNameFor(model => item.Name)</td>
+    <td> Html.DisplayNameFor(model => item.Price)</td>
+    <td> Html.DisplayNameFor(model => item.Quantity) </td>
+    <td> Html.DisplayNameFor(model => item.Color)</td>
+    <td> Html.DisplayNameFor(model => item.Description)</td>
+    <td><input type="button" value="Edit" class="btn btn-light" /></td>
+    <td><input type="button" value="Delete" class="btn btn-danger" /></td>
+</tr>
+-->

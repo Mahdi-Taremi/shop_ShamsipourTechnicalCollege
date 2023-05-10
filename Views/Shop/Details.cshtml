@@ -1,0 +1,44 @@
+﻿<!-- model IQueryable<shop_MahdiTaremi.Models.Product> -->
+<!-- model IEnumerable<shop_MahdiTaremi.Models.Product> -->
+<!-- model IEnumerable<Product> -->
+<!-- model IEnumerable<shop_MahdiTaremi.Models.Product> -->
+@model Product
+<h1>Index Shop</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Color</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <!-- foreach (var item in Model) -->
+        
+
+            <tr>
+                <td>@Model.Id</td>
+            <td>@Model.Name</td>
+            <td>@Model.Price</td>
+            <td>@Model.Quantity</td>
+            <td>@Model.Color</td>
+            <td>@Model.Description</td>
+                <td><input type="button" value="Edit" class="btn btn-light" /></td>
+                <td><input type="button" value="Delete" class="btn btn-danger" /></td>
+            </tr>
+
+    </tbody>
+</table>
+
+
+
+
