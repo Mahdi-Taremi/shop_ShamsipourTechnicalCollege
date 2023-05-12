@@ -12,7 +12,9 @@ namespace shop_MahdiTaremi.Models
         public int Price { get; set; }
         //[Required]
         public int Quantity { get; set; }   
-        public string? Color { get; set; }   
+        public string? Color { get; set; }
+        public Boolean Status { get; set; }
+        public DateTime Date { get; set; }
         public string? Description { get; set; }
     }
 }
