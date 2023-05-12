@@ -1,10 +1,8 @@
 ﻿<!-- model IQueryable<shop_MahdiTaremi.Models.Product> -->
-<!-- model IEnumerable<shop_MahdiTaremi.Models.Product> -->
 <!-- model IEnumerable<Product> -->
 
+@model IEnumerable<shop_MahdiTaremi.Models.Product>
 
-    <!--
-model IEnumerable<shop_MahdiTaremi.Models.Product>
 <h1>Index Shop</h1>  
 
 
@@ -24,15 +22,15 @@ model IEnumerable<shop_MahdiTaremi.Models.Product>
 
     <tbody>
 
-     foreach (var item in Model) {
+     @foreach (var item in Model) {
 
             <tr>
-                <td>item.Id</td>
-                <td>item.Name</td>
-                <td>item.Price</td>
-                <td>item.Quantity</td>
-                <td>item.Color</td>
-                <td>item.Description</td>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@item.Color</td>
+                <td>@item.Description</td>
                 <td><input type="button" value="Edit" class="btn btn-light" /></td>
                 <td><input type="button" value="Delete" class="btn btn-danger" /></td>
             </tr>
@@ -40,8 +38,11 @@ model IEnumerable<shop_MahdiTaremi.Models.Product>
        
     </tbody>
 </table>
-    -->
-@model Product
+ 
+
+
+<!-- model Product -->
+<!--
 
 <form method="post" action="BuyShopAction">
     <div class="mb-3">
@@ -65,10 +66,9 @@ model IEnumerable<shop_MahdiTaremi.Models.Product>
         <input type="text" class="form-control" id="exampleInputDescription" name="Description" aria-describedby="emailHelp">
     </div>
     <input type="submit" class="btn btn-primary" value="Save" />
-
-    <!-- <button type="submit" value="OK"  class="btn btn-primary"></button> -->
 </form>
 
+-->
 
 
 

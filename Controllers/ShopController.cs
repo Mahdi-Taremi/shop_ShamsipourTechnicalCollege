@@ -11,15 +11,15 @@ namespace shop_MahdiTaremi.Controllers
         {
             this.dbShop = dbShop;
         }
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();  
-        }
+        //[HttpGet]
         //public IActionResult Index()
         //{
+           // return View();  
+        //}
+        public IActionResult Index()
+        {
         //var query = await dbShop.Product.ToListAsync();
-        //var query = dbShop.Product.ToList();
+        var query = dbShop.Product.ToList();
         //List<Product> query = dbShop.Product.ToList();
         //List<Product> query = new List<Product>();
         //List<Product> query = dbShop.Product.ToList();
@@ -80,35 +80,44 @@ namespace shop_MahdiTaremi.Controllers
         // var query = products.Where(x => x.Name == "Name2").Count();
         // var query = products.Where(x => x.Name.Contains("Name2")).ToList();
 
-        // return View(query);  T
+        return View(query);  
         //  return View();
-        // }
+        }
         public IActionResult BuyShop()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> BuyShopAction(Product f)
+        public IActionResult BuyShopAction(Product f)
         {
-            if (ModelState.IsValid)
-            {
             dbShop.Product.Add(f);
-            await dbShop.SaveChangesAsync();                
-
-            return RedirectToAction("Details", new {id =f.Id});
+             dbShop.SaveChanges();                
+            return RedirectToAction("Index");
             //return RedirectToAction("Details",new {id =f.Id});
-            }
-            return View("Index");
+            
         }
-        public async Task<IActionResult> Details(int id)
-        {
-            var product = await dbShop.Product.FindAsync(id);   
-            if (product == null)
-            {
-                return View("Error");
-            }
-            return View(product);
-        }
+      //  public async Task<IActionResult> BuyShopAction(Product f)
+       // {
+          //  if (ModelState.IsValid)
+           // {
+               // dbShop.Product.Add(f);
+               // await dbShop.SaveChangesAsync();
+
+              //  return RedirectToAction("Index", new { id = f.Id });
+                //return RedirectToAction("Details",new {id =f.Id});
+           // }
+           // return View("Index");
+        //}
+
+        //public async Task<IActionResult> Details(int id)
+        //{
+        //var product = await dbShop.Product.FindAsync(id);   
+        //if (product == null)
+        // {
+        // return View("Error");
+        //}
+        //return View(product);
+        //}
 
     }
 }
