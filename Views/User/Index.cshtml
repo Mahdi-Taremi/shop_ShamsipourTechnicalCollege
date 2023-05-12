@@ -1,0 +1,41 @@
+﻿@model IEnumerable<shop_MahdiTaremi.Models.User>
+
+
+<h1>Sucess</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Password</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Password</td>
+                <td>@item.Gender</td>
+                <td>@item.Description</td>
+                <td>@item.Date</td>
+                <td><input type="button" value="Edit" class="btn btn-light" /></td>
+                <td><input type="button" value="Delete" class="btn btn-danger" /></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
