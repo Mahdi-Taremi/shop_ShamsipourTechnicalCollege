@@ -18,6 +18,8 @@
             <th scope="col">Date</th>
             <th scope="col">Description</th>
             <th scope="col">Edit</th>
+            <th scope="col">Open</th>
+            <th scope="col">Delete</th>
             <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -36,6 +38,8 @@
                 <td>@item.Date</td>
                 <td>@item.Description</td>
                 <td><input type="button" value="Edit" class="btn btn-light" /></td>
+                <td><a href="/Shop/Show/?Id=@item.Id">Open</a></td>
+                <td><a href="/Shop/Delete/?Id=@item.Id">Delete</a></td>
                 <td><input type="button" value="Delete" class="btn btn-danger" /></td>
             </tr>
         }

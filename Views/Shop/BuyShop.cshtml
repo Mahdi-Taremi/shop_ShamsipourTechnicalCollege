@@ -1,9 +1,13 @@
-﻿@model Product
+﻿@model Product;
+ <!-- model shop_MahdiTaremi.Models.Product;   -->
 
-<form method="post" action="BuyShopAction">
+ <!-- <form method="post" action="BuyShopAction">  -->
+     <!-- asp-controller="ShopController" -->
+<form method="post"  asp-action="BuyShopAction" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputName" class="form-label">Name: </label>
-        <input type="text" class="form-control" id="exampleInputName" name="Name" aria-describedby="emailHelp">
+        <!-- asp-for="" ||  name="" -->
+        <input type="text" class="form-control" id="exampleInputName" name="Name"  aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
         <label for="exampleInputPrice" class="form-label">Price: </label>
@@ -25,6 +29,10 @@
         <div class="radio">
             <label><input type="radio" name="Status" value="No">غیرفعال</label>
         </div>
+    </div>
+ <div class="mb-3">
+        <label for="exampleInputFileUploadFile" class="form-label">UploadFile : </label>
+        <input type="file" class="form-control" id="exampleInputFileUploadFile" name="UploadFile" aria-describedby="emailHelp">
     </div>
     <div class="form-group">
         <label for="date">تاریخ:</label>

@@ -1,0 +1,39 @@
+﻿@model shop_MahdiTaremi.Models.Product
+@using System.Globalization;
+
+
+
+<p>
+    Id  : @Model.Id
+</p>
+<p>
+    Name : @Model.Name
+</p>
+<p>
+    Price  : @Model.Price
+</p>
+<p>
+    Quantity : @Model.Quantity
+</p>
+<p>
+    Color  : @Model.Color
+</p>
+<p>
+    Status  : @Model.Status
+</p>
+<p>
+    pic_1   : <img style="height=" src="~/Uploads/@Model.pic_1" />
+</p>
+
+<p>
+    @if (@Model.Date != null)  
+    {
+        PersianCalendar PC = new PersianCalendar();
+        string Shamsi = PC.GetYear(Model.Date) + "/" + PC.GetMonth(Model.Date) + "/" + PC.GetDayOfMonth(Model.Date);
+        <span>@Shamsi</span>
+    }
+ 
+</p>
+<p>
+    Description : @Model.Description
+</p>

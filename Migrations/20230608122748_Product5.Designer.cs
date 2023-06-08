@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using shop_MahdiTaremi.Models;
 
@@ -11,9 +12,11 @@ using shop_MahdiTaremi.Models;
 namespace shop_MahdiTaremi.Migrations
 {
     [DbContext(typeof(dbShop))]
-    partial class dbShopModelSnapshot : ModelSnapshot
+    [Migration("20230608122748_Product5")]
+    partial class Product5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,10 +54,6 @@ namespace shop_MahdiTaremi.Migrations
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
-
-                    b.Property<string>("pic_1")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

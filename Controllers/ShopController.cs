@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations.Internal;
+using shop_MahdiTaremi.Migrations;
 using shop_MahdiTaremi.Models;
 
 namespace shop_MahdiTaremi.Controllers
@@ -20,7 +22,7 @@ namespace shop_MahdiTaremi.Controllers
         {
         //var query = await dbShop.Product.ToListAsync();
         var query = dbShop.Product.ToList();
-        //var query = dbShop.Product.Where(x => x.Price >=50).ToList();
+            //var query = dbShop.Product.Where(x => x.Price >=50).ToList();
             //List<Product> query = dbShop.Product.ToList();
             //List<Product> query = new List<Product>();
             //List<Product> query = dbShop.Product.ToList();
@@ -88,9 +90,32 @@ namespace shop_MahdiTaremi.Controllers
         {
             return View();
         }
+        public IActionResult Show(int Id) { 
+            var query =dbShop.Product.Where(x => x.Id == Id).SingleOrDefault();
+
+                return View(query);  
+        }
+        public IActionResult Delete(int Id) { 
+            var query =dbShop.Product.Where(x => x.Id == Id).SingleOrDefault();
+            dbShop.Product.Remove(query);   
+            dbShop.SaveChanges();
+
+            return RedirectToAction("Index");
+
+
+        }
+
+
+
         [HttpPost]
-        public IActionResult BuyShopAction(Product f)
+        public IActionResult BuyShopAction(Models.Product f, [FromServices] IWebHostEnvironment env)
         {
+            var FilePath = Path.Combine(env.WebRootPath, "Uploads", f.UploadFile.FileName);
+            using(var img = System.IO.File.Create(FilePath))
+            {
+                f.UploadFile.CopyTo(img);
+            }
+            f.pic_1 = f.UploadFile.FileName;
             dbShop.Product.Add(f);
              dbShop.SaveChanges();                
             return RedirectToAction("Index");
