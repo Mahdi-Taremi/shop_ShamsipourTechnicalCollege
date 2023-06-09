@@ -21,5 +21,10 @@ namespace shop_MahdiTaremi.Models
         public IFormFile? UploadFile { get; set; }
         public DateTime Date { get; set; }
         public string? Description { get; set; }
+        [ForeignKey("BasketId")]
+       public ICollection<Basket> IdBasket { get; set; }
+
+
+
     }
 }

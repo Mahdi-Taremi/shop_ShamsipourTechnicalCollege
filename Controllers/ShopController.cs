@@ -21,7 +21,7 @@ namespace shop_MahdiTaremi.Controllers
         public IActionResult Index()
         {
         //var query = await dbShop.Product.ToListAsync();
-        var query = dbShop.Product.ToList();
+        var query = dbShop.Product.ToList().OrderByDescending(x => x.Id);
             //var query = dbShop.Product.Where(x => x.Price >=50).ToList();
             //List<Product> query = dbShop.Product.ToList();
             //List<Product> query = new List<Product>();

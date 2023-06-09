@@ -21,5 +21,7 @@ namespace shop_MahdiTaremi.Models
         //DbSet is Key Microsoft And Table DB with Models
         public DbSet<Product> Product { get; set; }
         public DbSet<User> User { get; set; }
+
+        public DbSet<Basket> Basket { get; set; }
     }
 }

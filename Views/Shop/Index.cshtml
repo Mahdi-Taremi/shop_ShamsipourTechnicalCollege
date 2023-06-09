@@ -47,6 +47,43 @@
     </tbody>
 </table>
  
+<div class="row">
+    @foreach(var item in Model)
+    {
+        <div class="col-sm-3">
+            <img src="~/Uploads/@item.pic_1" style="width:100px;height:100px" />
+            <p>@item.Name</p>
+            <hr>
+            <p>
+                @{
+                    string Price = ((item.Price * 0.2) + item.Price).ToString();
+                }
+                <span style="text-decoration:line-through;color:red">@Price</span>
+                <span style="color:green">@item.Price</span>
+            </p>
+            <!-- <input type="button" onclick="BuyBtn(item.Id)" value="Buy" class="btn btn-light" /> -->
+            <input type="button" onclick="BuyBtn(@item.Id)" value="Buy" class="btn btn-light" />
+        </div>
+
+    }
+</div>
+
+<script>
+    function BuyBtn(Id){
+        // alert(Id)
+       fetch("https://localhost:7280/api/ProductAPI/" + Id)
+         .then((response) => response.json())
+        .then((data) => {
+        debugger;
+        alert(data);
+        })
+        .catch(error =>{
+       // debugger;
+      // alert(error);
+        })
+        alert("Successfull");
+    }
+</script>
 
 
 <!-- model Product -->
