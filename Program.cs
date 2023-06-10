@@ -1,11 +1,18 @@
 using shop_MahdiTaremi.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<dbShop>(x => x.UseSqlServer("Server=.;Database=shopShamsipourTechnicalCollege;User Id=MahdiTaremi;Password=12;TrustServerCertificate=True;"));
+
+// 1. Add Swagger 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 //builder.Services.AddDbContext<dbShop>(x => x.UseSqlServer("Server=.:Initial Catalog=shopShamsipourTechnicalCollege;Integrated Security=False;Persist Security Info=False;TrustServerCertificate=True; User Id=MahdiTaremi;Password=123;"));
 
 //"Server=.:Initial Catalog=shopShamsipourTechnicalCollege;Integrated Security=False;Persist Security Info=False;TrustServerCertificate=True; User Id=myUsername;Password=myPassword;"
@@ -13,6 +20,9 @@ builder.Services.AddDbContext<dbShop>(x => x.UseSqlServer("Server=.;Database=sho
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+// 2. Add Swagger 
+app.UseSwaggerUI();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -28,6 +38,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+// 3. Add Swagger 
+app.UseSwagger(x => x.SerializeAsV2 = true);
 
 app.MapControllerRoute(
     name: "default",
