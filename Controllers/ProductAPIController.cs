@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using shop_MahdiTaremi.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -22,7 +23,8 @@ namespace shop_MahdiTaremi.Controllers
         }
 
         // GET api/<ProductAPIController>/5
-        [HttpGet("{id}")]
+        // [HttpGet("{id}"), Authorize(Roles ="Admin")]
+        [HttpGet("{id}"), Authorize(Roles ="Admin")]
         public string Get(int id)
         {
             // return "Test True";
